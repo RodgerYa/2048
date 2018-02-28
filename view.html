@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>2048</title>
+</head>
+<body class="body" onload="newGame()" id="body">
+	<div class="head center">
+		<h1>2048</h1>
+		<a class="new_game_btn center" href="javascript:newGame()">新游戏</a>
+		分数：<span class="score" id="score">0</span>
+	</div>
+	<div class="game_view center">
+		<div class="grid_item" id="item_1_1"></div>
+		<div class="grid_item" id="item_1_2"></div>
+		<div class="grid_item" id="item_1_3"></div>
+		<div class="grid_item" id="item_1_4"></div>
+
+		<div class="grid_item" id="item_2_1"></div>
+		<div class="grid_item" id="item_2_2"></div>
+		<div class="grid_item" id="item_2_3"></div>
+		<div class="grid_item" id="item_2_4"></div>
+
+		<div class="grid_item" id="item_3_1"></div>
+		<div class="grid_item" id="item_3_2"></div>
+		<div class="grid_item" id="item_3_3"></div>
+		<div class="grid_item" id="item_3_4"></div>
+
+		<div class="grid_item" id="item_4_1"></div>
+		<div class="grid_item" id="item_4_2"></div>
+		<div class="grid_item" id="item_4_3"></div>
+		<div class="grid_item" id="item_4_4"></div>
+
+		<div class="result" id="result">
+			<h3>游戏结束!</h3>
+			<a class="new_game_btn try_again" href="javascript:newGame()">再试一次</a>
+		</div>
+	</div>
+</body>
+<script src="controler.js" type="text/javascript"></script>
+</html>
+
+<style>
+	.body {
+		background-image: url("img/bg.jpg");
+		background-size: 100%;
+		padding: 0;
+		margin: 0;
+	}
+	h1 {
+		font-size: 50px;
+		 font-family: "Gill Sans", Impact, Serif;
+	}
+	h3 {
+		text-align: center;
+		margin-top: 40%;
+		font-size: 40px;
+		font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+		color: #776e65;
+	}
+	.center {
+		margin: 0 auto;
+	}
+	.head {
+		text-align: center;
+		font-weight: bold;
+	}
+	.new_game_btn {
+		display: block;
+		font-weight: bold;
+		width: 102px;
+		background-color: #8f7a66;
+		padding: 10px 8px;
+		border-radius: 10px;
+		color: white;
+		/* 文本装饰 */
+		text-decoration: none;
+	}
+	.score {
+		font-family: Arial;
+		font-size:  17px;
+		margin: 10px 0;
+		display: inline-block;
+	}
+	.game_view {
+		width: 500px;
+		height: 500px;
+		background: #999999;
+		border-radius: 10px;
+		display: grid;
+		grid-template-rows: repeat(4, 100px);
+		grid-template-columns: repeat(4, 100px);
+		grid-gap: 20px;
+		justify-content: center;
+		align-content: center;
+		position: relative;
+	}
+	.grid_item {
+		width: 100px;
+		height: 100px;
+		border-radius: 10px;
+		background-color: #CDC5BF;
+		font-weight: bold;
+		font-size: 40px;
+		color: #FFFFFF;
+		text-align: center;
+		line-height: 100px;
+		transition: 200ms ease-in-out;
+	}
+	.result {
+		position: absolute;
+		background-color: #FFFFFF;
+		border-radius: 10px;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		transition: opacity 1s;
+	}
+	.result .try_again {
+		text-align: center;
+		margin-left: 190px;
+	}
+	.newNum {
+		animation: newNum;
+	}
+	@keyframes newNum {
+		0% {width: 90px; height: 90px;font-size: 36px;line-height: 90px}
+		100% {width: 100px; height: 100px;fone-size:40px;line-height: 100px}
+	}
+	@keyframes merge {
+		0% {transform: scale(0)};
+		50% {transform: scale(1.2)};
+		100% {transform: scale(1)};
+	}
+
+	.zero {
+		background-color: #CDC5BF;
+	}
+	.two{
+		background-color: #CDBA96
+	}
+	.four{
+		background-color: #CDBE70
+	}
+	.eight{
+		background-color: #CDAD00
+	}
+	.sixteen{
+		background-color: #CD8500
+	}
+	.thirty_two{
+		background-color: #CD6600
+	}
+	.sixty_four{
+		background-color: #87CEEB
+	}
+	.one_hundred_twenty_eight{
+		background-color: #7EC0EE
+	}
+	.two_hundred_fifty_six{
+		background-color: #63B8FF
+	}
+	.five_hundred_twelve{
+		background-color: #5CACEE
+	}
+	.one_thousand_twenty_four{
+		background-color: #4F94CD
+	}
+	.two_thousand_fourty_eight{
+		background-color: #48D1CC
+	}
+
+</style>
